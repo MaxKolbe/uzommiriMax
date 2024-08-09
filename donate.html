@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="donate.css">
+    <title>Donate</title>
+</head>
+<body>
+<!--DONATE-->
+<div class="donate-hero">
+    <div class="donate-content">
+    <h1>Donate</h1>
+    <p>Uzommiri Study Centre</p>
+    <p>First Bank</p>
+    <p class="copy" id="textToCopy">2001218880 <FaRegCopy class="icon" onclick="copyToClipboard('textToCopy')"/></p><!--React font added without import statement-->
+    <br><p>Donate in foreign currency with this <a href="https://www.american-initiatives.org/uzommiri">link</a></p>
+    </div>
+</div>
+<!--TOAST-->
+<div id="toast" class="toast">Text copied to clipboard</div>
+
+<!--SCRIPT-->
+<script>
+    //Function to copy account number
+    function copyToClipboard(elementId) {
+        const textToCopy = document.getElementById(elementId).innerText;
+        navigator.clipboard.writeText(textToCopy).then(() => {
+            showToast();
+        }).catch(err => {
+            console.error('Failed to copy text: ', err);
+        });
+    }
+    //Function to show toast "Text copied to clipboard"
+    function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000); // Toast visible for 3 seconds
+        }
+</script>
+</body>
+</html>
